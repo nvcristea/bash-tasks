@@ -1,0 +1,13 @@
+{
+  "name": "enkas/bash-tasks",
+  "type": "library",
+  "description": "Shell scripts to install and configure Cent OS",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nicolae V. Cristea",
+      "email": "contact@cristea.me"
+    }
+  ],
+  "minimum-stability": "stable"
+}
