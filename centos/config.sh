@@ -1,12 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 MYSQL_ROOT_PASS="pass"
 
 declare -A WHICH_MAP=(
-    [nodejs]=node
-    [java7]=java
+    [nodejs]='node'
+    [java7]='java'
 )
+
 declare -A YUM_INSTALL_MAP=(
+    [update]='update'
     [httpd]='httpd'
     [mysql]='mysql'
     [php]='php php-pear php-suhosin php-mysql php-pdo php-intl php-gd php-fpm php-xml php-mcrypt'
@@ -21,5 +23,4 @@ declare -A YUM_INSTALL_MAP=(
     [varnish]='varnish'
     [nodejs]='nodejs npm'
     [tools]='nano wget traceroute htop java7'
-    [update]='update'
 )

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ -f config.sh ]; then
-    . config.sh
-    . lib.sh
+    . ./config.sh
+    . ./lib.sh
 else
     DIR="${BASH_SOURCE%/*}"
     if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
@@ -10,7 +10,7 @@ else
     . "$DIR/lib.sh"
 fi
 
-if [[ ${1} -eq "--help" ]]; then
+if [ ${1} = '--help' ]; then
     echo "Available arguments to call 'install.sh arg' are:"
     for KEY in "${!YUM_INSTALL_MAP[@]}"; do echo ${KEY}; done
     exit 0

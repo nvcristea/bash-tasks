@@ -64,7 +64,7 @@ function validate
 
 function install
 {
-    echo "## Prepare Install: $@"
+    echo "## Install: $@"
 
     case ${1} in
 
