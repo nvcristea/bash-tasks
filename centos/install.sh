@@ -1,26 +1,24 @@
 #!/bin/bash
 
-DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-. "$DIR/lib.sh"
+if [ -f config.sh ]; then
+    . config.sh
+    . lib.sh
+else
+    DIR="${BASH_SOURCE%/*}"
+    if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+    . "$DIR/config.sh"
+    . "$DIR/lib.sh"
+fi
 
-case ${1} in
+if [[ ${1} -eq "--help" ]]; then
+    echo "Available arguments to call 'install.sh arg' are:"
+    for KEY in "${!YUM_INSTALL_MAP[@]}"; do echo ${KEY}; done
+    exit 0
+fi
 
-    'composer'|'httpd'|'mysql'|'phpunit'|'icu'|'varnish'|'update')
-        install ${1}
-    ;;
-
-    'php')
-        install "php php-pear php-suhosin php-mysql php-pdo php-intl php-gd php-fpm php-xml php-mcrypt"
-    ;;
-
-    'php_dev_tools')
-        install "php-pecl-xhprof php-devel pcre-devel phpmyadmin"
-    ;;
-
-    *)
-        error "--> ${1} not configured to install"
-#        install $@
-    ;;
-
-esac
+if [ -z "${YUM_INSTALL_MAP[${1}]}" ]
+    then
+        error "-> ${1} not configured to install"
+    else
+        install ${YUM_INSTALL_MAP[${1}]}
+fi

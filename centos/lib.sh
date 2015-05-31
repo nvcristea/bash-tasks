@@ -1,7 +1,5 @@
 #!/bin/bash
 
-MYSQL_ROOT_PASS="pass"
-
 function error {
 
     echo -e "\033[1;31m${1}\033[0m" 1>&2
@@ -52,6 +50,7 @@ function validate
     local invalidCount=0
 
     for PACKAGE in $@; do
+        if ! [ -z "${WHICH_MAP[${PACKAGE}]}" ]; then PACKAGE=${WHICH_MAP[${PACKAGE}]}; fi
         validateCommand ${PACKAGE}
         if [ $? -eq 1 ]; then
             (( invalidCount +=1 ))

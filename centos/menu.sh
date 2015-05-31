@@ -27,22 +27,22 @@ do
             break
             ;;
         "2")
-            sh ${DIR}/phpunit.sh
+            sh ${DIR}/install.sh phpunit
             menu
             break
             ;;
         "3")
-            sh ${DIR}/xdebug.sh
+            sh ${DIR}/install.sh xdebug
             menu
             break
             ;;
         "4")
-            sh ${DIR}/varnish.sh
+            sh ${DIR}/install.sh varnish
             menu
             break
             ;;
         "5")
-            sh ${DIR}/tools.sh
+            sh ${DIR}/install.sh tools
             menu
             break
             ;;
