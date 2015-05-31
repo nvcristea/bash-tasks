@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CMD="httpd"
+CMD="php-pecl-xdebug"
 
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi

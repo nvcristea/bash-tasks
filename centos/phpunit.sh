@@ -1,33 +1,9 @@
 #!/bin/bash
 
-SOURCE="${BASH_SOURCE[0]}"
-DIR="$( dirname "$SOURCE" )"
-SCRIPT="${0##*/}"
-EXTENSION=".sh"
-CMD=${SCRIPT%$EXTENSION}
+CMD="phpunit"
 
-function validate
-{
-    echo "-> VALIDATE"
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+. "$DIR/lib.sh"
 
-    if [[ $(which ${CMD}) == */${CMD} ]]; then
-        sh ${DIR}/lib.sh errorAlreadyInstalled ${CMD}
-        exit 0
-    fi
-}
-
-function install
-{
-    echo "-> START"
-
-    wget https://phar.phpunit.de/phpunit.phar
-    chmod +x phpunit.phar
-    mv phpunit.phar /usr/bin/phpunit
-    phpunit --version
-}
-
-
-echo "## Install ${CMD^}"
-validate
-install
-echo "-> FINISH"
+install ${CMD}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CMD="httpd"
+CMD="update"
 
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi

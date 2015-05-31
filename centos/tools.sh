@@ -1,20 +1,9 @@
 #!/bin/bash
 
-SOURCE="${BASH_SOURCE[0]}"
-DIR="$( dirname "$SOURCE" )"
-SCRIPT="${0##*/}"
-EXTENSION=".sh"
-CMD=${SCRIPT%$EXTENSION}
+CMD="nano wget traceroute htop java"
 
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+. "$DIR/lib.sh"
 
-function install
-{
-    echo "-> START"
-
-    yum -y nano wget traceroute htop java7
-}
-
-
-echo "## Install ${CMD^}"
-install
-echo "-> FINISH"
+install ${CMD}
