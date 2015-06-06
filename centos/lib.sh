@@ -18,13 +18,28 @@ function errorAlreadyInstalled {
     return $?
 }
 
+function errorAlreadyYumInstalled {
+
+    error "-> ${1} already installed: $(yum list installed | grep $1)"
+    return $?
+}
+
 function validateCommand {
 
     echo "-> VALIDATE ${1}"
 
-    if [[ $(which ${1}) == */${1} ]]; then
-        errorAlreadyInstalled ${1}
-        return $?
+    if [[ $1 =~ 'php-pecl' ]]; then
+
+        if [[ $(yum list installed | grep ${1}) =~ ${1} ]]; then
+            errorAlreadyYumInstalled ${1}
+            return $?
+        fi
+    else
+
+        if [[ $(which ${1}) == */${1} ]]; then
+            errorAlreadyInstalled ${1}
+            return $?
+        fi
     fi
 }
 
