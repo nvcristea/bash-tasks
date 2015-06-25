@@ -146,6 +146,12 @@ function install
             yum -y install varnish
         ;;
 
+        'repo-remi')
+            echo "-> START"
+            rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+            yum repolist | grep remi
+        ;;
+
         'update')
             yum -y update
         ;;

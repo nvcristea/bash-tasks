@@ -14,6 +14,7 @@ Vagrant CentOS Helper
  3 - Install XDebug
  4 - Install Varnish
  5 - Install Tools
+ 6 - Install php55
  0 - Quit
 ---------------------
 EOF
@@ -43,6 +44,12 @@ do
             ;;
         "5")
             sh ${DIR}/install.sh tools
+            menu
+            break
+            ;;
+        "6")
+            sh ${DIR}/install.sh repo-remi
+            sh ${DIR}/install.sh php55
             menu
             break
             ;;
