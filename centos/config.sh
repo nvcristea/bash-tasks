@@ -13,6 +13,7 @@ declare -A YUM_INSTALL_MAP=(
     [mysql]='mysql'
     [php]='php php-pear php-suhosin php-mysql php-pdo php-intl php-gd php-fpm php-xml php-mcrypt'
     [php55]='--enablerepo=remi php55 php55-php-pear php55-php-intl php55-php-gd php55-php-fpm php55-php-mcrypt'
+    [php7]='--enablerepo=webtatic php70w php70w-opcache'
     [php_pecl_tools]='php-pecl-apc php-pecl-geoip php-pecl-oauth'
     [php_dev_tools]='php-devel pcre-devel'
     [phpmyadmin]='phpmyadmin'
@@ -25,4 +26,5 @@ declare -A YUM_INSTALL_MAP=(
     [nodejs]='nodejs npm'
     [tools]='nano wget traceroute htop java7'
     [repo-remi]='repo-remi'
+    [repo-webtatic]='repo-webtatic'
 )

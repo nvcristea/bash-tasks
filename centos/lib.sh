@@ -152,6 +152,12 @@ function install
             yum repolist | grep remi
         ;;
 
+        'repo-webtatic')
+            echo "-> START"
+            rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+            yum repolist | grep webtatic
+        ;;
+
         'update')
             yum -y update
         ;;

@@ -15,6 +15,7 @@ Vagrant CentOS Helper
  4 - Install Varnish
  5 - Install Tools
  6 - Install php55
+ 7 - Install php7
  0 - Quit
 ---------------------
 EOF
@@ -50,6 +51,12 @@ do
         "6")
             sh ${DIR}/install.sh repo-remi
             sh ${DIR}/install.sh php55
+            menu
+            break
+            ;;
+        "7")
+            sh ${DIR}/install.sh repo-webtatic
+            sh ${DIR}/install.sh php7
             menu
             break
             ;;
